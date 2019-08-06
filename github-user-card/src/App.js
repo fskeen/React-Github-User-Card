@@ -2,25 +2,36 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
+import Header from './components/Header';
+import CardContainer from './components/CardContainer';
+
+class App extends React.Component {
+  constructor () {
+    super();
+    this.state = {
+      users: ['fake user']
+    };
+  }
+
+  componentDidMount() {
+    fetch(`https://api.github.com/users/fskeen`)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({users: [res]})
+      })
+      .catch(error => {
+        console.log("Error getting data from server: ", error)
+      })
+  }
+
+  render () {
+   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <CardContainer users={this.state.users}/>
     </div>
-  );
+  ); 
+  }
 }
 
 export default App;
