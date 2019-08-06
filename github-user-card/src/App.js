@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Header from './components/Header';
@@ -9,7 +8,9 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      users: ['fake user']
+      users: ['User is loading'],
+      followers: [],
+      following: []
     };
   }
 
@@ -20,15 +21,39 @@ class App extends React.Component {
         this.setState({users: [res]})
       })
       .catch(error => {
-        console.log("Error getting data from server: ", error)
+        console.log("Error getting users from server: ", error)
       })
+
+    fetch(`https://api.github.com/users/fskeen/followers`)
+      .then(res => res.json())
+      .then(res => {
+      this.setState({followers: res})
+    })
+    .catch(error => {
+      console.log("Error getting followers from server: ", error)
+    })
+
+    fetch(`https://api.github.com/users/fskeen/following`)
+      .then(res => res.json())
+      .then(res => {
+      this.setState({following: res})
+    })
+    .catch(error => {
+      console.log("Error getting following from server: ", error)
+    })
   }
 
+
+
   render () {
+    console.log(this.state)
    return (
     <div className="App">
       <Header />
-      <CardContainer users={this.state.users}/>
+      <CardContainer
+        users={this.state.users}
+        followers={this.state.followers}
+        following={this.state.following}/>
     </div>
   ); 
   }

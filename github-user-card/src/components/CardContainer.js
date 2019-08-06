@@ -2,13 +2,13 @@ import React from 'react';
 
 import Card from './Card'
 
-function CardContainer ({users}) {
+function CardContainer ({users, followers, following}) {
 
     return (
         <ul>
             <p>Time to render some cards</p>
             {users.map(user => {
-                return <Card users={users}/>
+                return <Card key={Date.now} user={user} followers={followers} following={following}/>
             })}
         </ul>
         

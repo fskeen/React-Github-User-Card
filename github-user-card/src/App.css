@@ -1,7 +1,60 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px red solid;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  width: 50rem;
+  border: 1px solid seagreen;
+  align-items: center;
+  border-radius: 1rem;
+  padding: .5rem;
+
+}
+
+.repos {
+  display: flex;
+}
+
+.avatar {
+  width: 20rem;
+  margin: 1rem;
+  
+}
+
+img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.follows {
+  display: flex;
+  width: 50rem;
+}
+
+.follow-column {
+  display: flex;
+  width: 49%;
+  align-items: space-between;
+  flex-flow: column wrap;
+  height: 30rem;
+}
+
+.follower, .following {
+  margin: .25rem;
+}
 /* 
 .App-header {
   background-color: #282c34;
