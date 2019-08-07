@@ -2,11 +2,11 @@ import React from 'react';
 
 import Search from './Search';
 
-function Header () {
+function Header ({setSearch}) {
     return (
         <header>
             <h1>Search for a GitHub user</h1>
-            <Search />
+            <Search setSearch={setSearch}/>
         </header>
         
     )

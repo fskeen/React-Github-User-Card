@@ -8,14 +8,15 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      users: ['User is loading'],
+      users: [''],
+      finalQuery: 'fskeen',
       followers: [],
       following: []
     };
   }
 
-  componentDidMount() {
-    fetch(`https://api.github.com/users/fskeen`)
+  fetchData = () => {
+    fetch(`https://api.github.com/users/${this.state.finalQuery}`)
       .then(res => res.json())
       .then(res => {
         this.setState({users: [res]})
@@ -24,7 +25,7 @@ class App extends React.Component {
         console.log("Error getting users from server: ", error)
       })
 
-    fetch(`https://api.github.com/users/fskeen/followers`)
+    fetch(`https://api.github.com/users/${this.state.finalQuery}/followers`)
       .then(res => res.json())
       .then(res => {
       this.setState({followers: res})
@@ -33,7 +34,7 @@ class App extends React.Component {
       console.log("Error getting followers from server: ", error)
     })
 
-    fetch(`https://api.github.com/users/fskeen/following`)
+    fetch(`https://api.github.com/users/${this.state.finalQuery}/following`)
       .then(res => res.json())
       .then(res => {
       this.setState({following: res})
@@ -43,13 +44,31 @@ class App extends React.Component {
     })
   }
 
+  componentDidMount() {
+    this.fetchData()
+  }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.finalQuery !== this.state.finalQuery) {
+      this.fetchData()
+    } else {
+      return prevState
+    }
+
+  }
+
+  setSearch = (query) => {
+    this.setState({finalQuery: query})
+    console.log("state in setSearch: ", this.state)
+    console.log("query passed to function: ", query)
+  }
 
   render () {
     console.log(this.state)
+    console.log("current user", this.state.finalQuery)
    return (
     <div className="App">
-      <Header />
+      <Header setSearch={this.setSearch}/>
       <CardContainer
         users={this.state.users}
         followers={this.state.followers}
