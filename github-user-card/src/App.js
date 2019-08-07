@@ -54,13 +54,16 @@ class App extends React.Component {
     } else {
       return prevState
     }
-
   }
 
   setSearch = (query) => {
     this.setState({finalQuery: query})
     console.log("state in setSearch: ", this.state)
     console.log("query passed to function: ", query)
+  }
+
+  clickOnFollows = (follow) => {
+    this.setState({finalQuery: follow})
   }
 
   render () {
@@ -72,7 +75,8 @@ class App extends React.Component {
       <CardContainer
         users={this.state.users}
         followers={this.state.followers}
-        following={this.state.following}/>
+        following={this.state.following}
+        clickOnFollows={this.clickOnFollows}/>
     </div>
   ); 
   }

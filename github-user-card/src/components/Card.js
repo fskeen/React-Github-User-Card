@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Card ({user, followers, following}) {
+function Card ({user, followers, following, clickOnFollows}) {
     return (
         <>
         <li className="user-card">
@@ -32,8 +32,9 @@ function Card ({user, followers, following}) {
                     {followers.map( a => {
                             return (
                                 <p
-                                    className="follower"
-                                    key={a.login}>{a.login}</p>
+                                className="follower"
+                                key={a.login}
+                                onClick={()=> clickOnFollows(a.login)}>{a.login}</p>
                             )
                         })}
                 </div>
@@ -45,8 +46,9 @@ function Card ({user, followers, following}) {
                         {following.map( a => {
                             return (
                                 <p
-                                    className="following"
-                                    key={a.login}>{a.login}</p>
+                                className="following"
+                                key={a.login}
+                                onClick={()=> clickOnFollows(a.login)}>{a.login}</p>
                             )
                         })}
                 </div>
