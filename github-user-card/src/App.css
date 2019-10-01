@@ -1,0 +1,175 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.753);
+  width: 100%;
+  color: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.753);
+  padding-bottom: .5rem;
+  outline: 1px rgba(0, 0, 0, 0.671) solid;
+  outline-offset: -3px;
+}
+
+.search-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  width: 60%;
+  margin: 1rem;
+  height: 1.25rem;
+  padding: .5rem;
+  border: none;
+  background: whitesmoke;
+  outline: 1px rgba(0, 0, 0, 0.404) solid;
+  outline-offset: -3px;
+}
+
+.search-btn {
+  padding: .5rem 1rem;
+  background-color: black;
+  border: 0;
+  color: rgba(255, 255, 255, 0.719);
+  outline: rgba(255, 255, 255, 0.555) solid 1px;
+  outline-offset: -3px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  color: white;
+  outline-color: white;
+}
+
+h1 {
+  margin: .75rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  width: 50rem;
+  box-shadow: 2px 2px 5px lightgray; 
+  align-items: center;
+  outline: 1px solid grey;
+  outline-offset: -4px;
+  padding: .5rem;
+  background-color: rgba(255, 255, 255, 0.842);
+}
+
+/* li:hover {
+  outline: 2px solid rgb(137, 238, 181);
+  /* background-color: rgb(233, 255, 243);
+  box-shadow: 2px 2px 5px rgb(144, 204, 170);
+} */
+
+.name {
+  color: black;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.repos {
+  display: flex;
+}
+
+.avatar {
+  width: 27rem;
+  margin: 1rem;
+  margin-right: 2rem;
+}
+
+.avatar img {
+  box-shadow: 2px 2px 3px lightgray;
+
+}
+
+img {
+  width: 100%;
+  outline: 1px solid white;
+  outline-offset: -4px;
+}
+
+.side-info{
+  margin: 1rem;
+  margin-left: 2rem;
+}
+
+.side-info p {
+  font-size: .75rem;
+}
+
+.follows {
+  display: flex;
+  width: 50rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.follow-column {
+  display: flex;
+  flex-flow: row wrap;
+  max-height: 30rem; 
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.reverse {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.follower, .following {
+  margin: .25rem;
+  padding: .5rem;
+  text-align: center;
+  box-shadow: 2px 2px 3px lightgray;
+  background-color: rgba(255, 255, 255, 0.842);
+  outline: 1px solid grey;
+  outline-offset: -4px;
+  transition: background-color 2s ease;
+  cursor: pointer;
+  height: 1.5rem;
+}
+
+.follower:hover {
+  transition: background-color .2s ease;
+  outline: 2px solid rgb(255, 155, 116);
+  background-color: peachpuff;
+  box-shadow: 2px 2px 3px rgb(255, 181, 152);
+}
+
+.following:hover {
+  transition: background-color .2s ease;
+  outline: 2px solid hotpink;
+  background-color: pink;
+  box-shadow: 2px 2px 3px rgb(255, 164, 209);
+}
+
+.following {
+  height: 1.5rem;
+}
+
+.divider {
+  width: 48%;
+}
